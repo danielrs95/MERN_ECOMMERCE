@@ -79,7 +79,7 @@ const ProductScreen = ({ match }) => {
                 <Button
                   className='btn-block'
                   type='button'
-                  disable={product.countInStock === 0}
+                  disabled={product.countInStock === 0}
                 >
                   Add To Cart
                 </Button>
