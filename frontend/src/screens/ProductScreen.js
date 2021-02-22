@@ -17,7 +17,7 @@ import Rating from "../components/Rating";
 import { listProductDetails } from "../actions/productActions";
 
 const ProductScreen = ({ history, match }) => {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
 
   const dispatch = useDispatch();
 
@@ -86,6 +86,23 @@ const ProductScreen = ({ history, match }) => {
                   </Row>
                 </ListGroup.Item>
 
+                {/**
+                 * Solo vamos a mostrar la barra de cantidad si
+                 * hay stock del producto
+                 * usar la condicion y uego && es equivalente a
+                 *
+                 *  if (product.countInStock) { ... }
+                 *
+                 * [...Array(product.countInStock).keys()] lo que hace es que
+                 * crea un array, con la cantidad de productos en stock, si hay
+                 * 5 productos pues crearia el array:
+                 *
+                 * [0,1,2,3,4]
+                 *
+                 * Luego mapeamos ese array, creando las opciones de la lista
+                 * despegable
+                 *
+                 */}
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
                     <Row>
