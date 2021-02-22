@@ -27,6 +27,11 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
 
     En el localStorage solo podemos guardar strings,
     por eso usamos JSON.stringify
+
+    Está guardado en el localStorage, pero donde
+    lo hacemos que se agregue al estado?
+    En el store.js
   */
+
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
