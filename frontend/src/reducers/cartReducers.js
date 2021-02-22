@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM } from "../constants/cartConstants";
+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "../constants/cartConstants";
 
 /**
  * el cartReducer toma el estado inicial y la acción
@@ -42,6 +42,16 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
           cartItems: [...state.cartItems, item],
         };
       }
+
+    case CART_REMOVE_ITEM:
+      /**
+       * Como vamos a remover, vamos a filtrar el item que estamos removiendo
+       * Vamos a filtrar todos los que el x.id no coincida con el payload
+       */
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((x) => x.product !== action.payload),
+      };
 
     default:
       return state;
