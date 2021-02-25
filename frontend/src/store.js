@@ -6,11 +6,13 @@ import {
   productDetailstReducer,
 } from "./reducers/productReducers";
 import { cartReducer } from "./reducers/cartReducers";
+import { userLoginReducer } from "./reducers/userReducers";
 
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailstReducer,
   cart: cartReducer,
+  userLogin: userLoginReducer,
 });
 
 // Estamos trayendo de la memoria local los items
