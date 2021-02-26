@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { logout } from "../actions/userActions";
 
 /**
  * Para TRAER algo del estado usamos useSelector
@@ -16,7 +17,7 @@ const Header = () => {
   const { userInfo } = userLogin;
 
   const logoutHandler = () => {
-    console.log("logout");
+    dispatch(logout());
   };
 
   return (
