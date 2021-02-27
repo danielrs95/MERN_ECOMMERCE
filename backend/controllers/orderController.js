@@ -36,4 +36,22 @@ const addOrderItems = AsyncHandler(async (req, res) => {
   }
 });
 
-export { addOrderItems };
+// @ desc   Get order by ID
+// @route   GET /api/orders
+// @access  Private
+const getOrderById = AsyncHandler(async (req, res) => {
+  // Ademas de la orden queremos saber el nombre y email del usuario que hizo la orden
+  const order = await (await Order.findById(req.params.id)).populate(
+    "user",
+    "name email"
+  );
+
+  if (order) {
+    res.json(order);
+  } else {
+    res.status(404);
+    throw new Error("Order not found");
+  }
+});
+
+export { addOrderItems, getOrderById };
