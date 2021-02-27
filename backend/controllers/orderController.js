@@ -37,11 +37,11 @@ const addOrderItems = AsyncHandler(async (req, res) => {
 });
 
 // @ desc   Get order by ID
-// @route   GET /api/orders
+// @route   GET /api/order
 // @access  Private
 const getOrderById = AsyncHandler(async (req, res) => {
   // Ademas de la orden queremos saber el nombre y email del usuario que hizo la orden
-  const order = await (await Order.findById(req.params.id)).populate(
+  const order = await Order.findById(req.params.id).populate(
     "user",
     "name email"
   );
