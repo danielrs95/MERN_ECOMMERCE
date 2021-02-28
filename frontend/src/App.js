@@ -30,7 +30,7 @@ const App = () => {
           <Route path='/profile' component={ProfileScreen} />
           <Route path='/product/:id' component={ProductScreen} />
           <Route path='/cart/:id?' component={CartScreen} />
-          <Route path='/admin/userList' component={UserListScreen} />
+          <Route path='/admin/userlist' component={UserListScreen} />
 
           {/* Estamos haciendo el ID en la ruta opcional con el operador ? */}
           <Route path='/' component={HomeScreen} exact />
