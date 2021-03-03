@@ -21,7 +21,7 @@ const app = express();
  * Instalamos morgan para ver en la consola
  * Cuando se haces peticiones HTTP, y otras cositas
  */
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === "DEVELOPMENT") {
   app.use(morgan("dev"));
 }
 
