@@ -2,6 +2,7 @@ import path from "path";
 import express from "express";
 import dotenv from "dotenv";
 import colors from "colors";
+import morgan from "morgan";
 import connectDB from "./config/db.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
@@ -15,6 +16,14 @@ dotenv.config();
 connectDB();
 
 const app = express();
+
+/**
+ * Instalamos morgan para ver en la consola
+ * Cuando se haces peticiones HTTP, y otras cositas
+ */
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
 
 app.use(express.json()); // nos permite usar JSON DATA en el body
 
