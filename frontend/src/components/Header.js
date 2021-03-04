@@ -1,9 +1,11 @@
 import React from "react";
+import { Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { logout } from "../actions/userActions";
+import SearchBox from "./SearchBox";
 
 /**
  * Para TRAER algo del estado usamos useSelector
@@ -29,6 +31,9 @@ const Header = () => {
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
+            {/* Si poniamos Searcbox solo, este no tenía accesos history entonces toca usar este metodo de embeberlo en el route de react router dom */}
+            <Route render={({ history }) => <SearchBox history={history} />} />
+
             <Nav className='ml-auto'>
               <LinkContainer to='/cart'>
                 <Nav.Link>

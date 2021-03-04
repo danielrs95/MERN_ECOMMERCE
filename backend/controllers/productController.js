@@ -9,7 +9,18 @@ const getProducts = AsyncHandler(async (req, res) => {
   // async - await, sin embargo esto deberíamos hacerlo en todas
   // las rutas, para evitarlo usamos un middleware
   // express-async-handler
-  const products = await Product.find({});
+
+  // req.query busca por las query en la url
+  const keyword = req.query.keyword
+    ? {
+        // Vamos a igualar el nombre del producto al query que enviamos por el search
+        name: {
+          $regex: req.query.keyword,
+          $options: "i", //case insensitive
+        },
+      }
+    : {};
+  const products = await Product.find({ ...keyword });
 
   res.json(products);
 });
