@@ -10,6 +10,10 @@ const getProducts = AsyncHandler(async (req, res) => {
   // las rutas, para evitarlo usamos un middleware
   // express-async-handler
 
+  // Cuantos productos queremos por pagina
+  const pageSize = 2;
+  const page = Number(req.query.pageNumber) || 1;
+
   // req.query busca por las query en la url
   const keyword = req.query.keyword
     ? {
@@ -20,9 +24,13 @@ const getProducts = AsyncHandler(async (req, res) => {
         },
       }
     : {};
-  const products = await Product.find({ ...keyword });
 
-  res.json(products);
+  const count = await Product.countDocuments({ ...keyword }); //Contamos los productos
+  const products = await Product.find({ ...keyword })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
 // @ desc   Fetch single produc

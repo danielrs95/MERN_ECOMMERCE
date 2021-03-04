@@ -35,7 +35,13 @@ export const productListReducer = (state = { products: [] }, action) => {
       // Loading false, porque ya hizo el request y
       // products estara lleno con el objeto action que tendra un
       // payload attached to it
-      return { loading: false, products: action.payload };
+
+      return {
+        loading: false,
+        products: action.payload.products, // ya en el frontend estamos devolviendo es prodcuts, pages y page
+        pages: action.payload.pages,
+        page: action.payload.page,
+      };
 
     case PRODUCT_LIST_FAIL:
       // Loading false, ya cargo pero hay un error
