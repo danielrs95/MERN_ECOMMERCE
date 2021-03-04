@@ -11,7 +11,7 @@ const getProducts = AsyncHandler(async (req, res) => {
   // express-async-handler
 
   // Cuantos productos queremos por pagina
-  const pageSize = 2;
+  const pageSize = 10;
   const page = Number(req.query.pageNumber) || 1;
 
   // req.query busca por las query en la url
