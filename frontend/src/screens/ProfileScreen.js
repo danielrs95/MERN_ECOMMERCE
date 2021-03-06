@@ -60,7 +60,7 @@ const ProfileScreen = ({ location, history }) => {
   return (
     <Row>
       <Col md={3}>
-        <h2>User profile</h2>
+        <h2>MY PROFILE</h2>
 
         {message && <Message variant='danger'>{message}</Message>}
         {error && <Message variant='danger'>{error}</Message>}
@@ -108,14 +108,14 @@ const ProfileScreen = ({ location, history }) => {
             ></Form.Control>
           </Form.Group>
 
-          <Button type='submit' varian='primary'>
+          <Button type='submit' variant='danger'>
             Update
           </Button>
         </Form>
       </Col>
 
       <Col md={9}>
-        <h2>Mis ordenes</h2>
+        <h2>MY ORDERS</h2>
         {loadingOrders ? (
           <Loader />
         ) : errorOrders ? (
@@ -154,7 +154,7 @@ const ProfileScreen = ({ location, history }) => {
                   </td>
                   <td>
                     <LinkContainer to={`/order/${order._id}`}>
-                      <Button className='btn-sm' variant='light'>
+                      <Button className='btn-sm' variant='danger'>
                         Details
                       </Button>
                     </LinkContainer>

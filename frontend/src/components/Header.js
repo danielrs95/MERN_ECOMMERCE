@@ -24,10 +24,10 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
+      <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>Ecommerce</Navbar.Brand>
+            <Navbar.Brand>MERN ECOMMERCE</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
@@ -44,7 +44,9 @@ const Header = () => {
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id='username'>
                   <LinkContainer to='/profile'>
-                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                    <NavDropdown.Item style={{ backgroundColor: "red" }}>
+                      Profile
+                    </NavDropdown.Item>
                   </LinkContainer>
                   {/* No queremos usar link container porque vamos a tener un click event handler */}
                   <NavDropdown.Item onClick={logoutHandler}>

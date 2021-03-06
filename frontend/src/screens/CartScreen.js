@@ -57,7 +57,9 @@ const CartScreen = ({ match, location, history }) => {
   return (
     <Row>
       <Col md={8}>
-        <h1>Shopping Cart</h1>
+        <h1>
+          <strong>SHOPPING CART</strong>
+        </h1>
         {/**
          * Si el carro está vacio muestra un letrero
          * Sino, muestra el grupo
@@ -102,7 +104,7 @@ const CartScreen = ({ match, location, history }) => {
                   <Col md={2}>
                     <Button
                       type='button'
-                      variant='light'
+                      variant='danger'
                       onClick={() => removeFromCartHandler(item.product)}
                     >
                       <i className='fas fa-trash'></i>
@@ -129,6 +131,7 @@ const CartScreen = ({ match, location, history }) => {
             </ListGroup.Item>
             <ListGroup.Item>
               <Button
+                variant='danger'
                 type='button'
                 className='btn-block'
                 disabled={cartItems.length === 0}

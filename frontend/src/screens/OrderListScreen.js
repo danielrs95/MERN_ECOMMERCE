@@ -25,7 +25,7 @@ const OrderListScreen = ({ history }) => {
 
   return (
     <>
-      <h1>Orders</h1>
+      <h1>ORDERS</h1>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -45,7 +45,7 @@ const OrderListScreen = ({ history }) => {
           </thead>
           <tbody>
             {orders.map((order) => (
-              <tr key={order.id}>
+              <tr key={order._id}>
                 <td>{order._id}</td>
                 <td>{order.user && order.user.name}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
@@ -66,7 +66,7 @@ const OrderListScreen = ({ history }) => {
                 </td>
                 <td>
                   <LinkContainer to={`/order/${order._id}`}>
-                    <Button variant='light' className='btn-sm'>
+                    <Button variant='danger' className='btn-sm'>
                       Details
                     </Button>
                   </LinkContainer>

@@ -35,7 +35,7 @@ const App = () => {
           <Route path='/product/:id' component={ProductScreen} />
           {/* Estamos haciendo el ID en la ruta opcional con el operador ? */}
           <Route path='/cart/:id?' component={CartScreen} />
-          <Route path='/admin/userlist' component={UserListScreen} />
+          <Route path='/admin/userlist' component={UserListScreen} exact />
           <Route path='/admin/user/:id/edit' component={UserEditScreen} />
           <Route
             path='/admin/productlist'

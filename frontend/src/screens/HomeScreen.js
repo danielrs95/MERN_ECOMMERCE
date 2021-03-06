@@ -40,7 +40,9 @@ const HomeScreen = ({ match }) => {
         </Link>
       )}
 
-      <h1>Latest Products</h1>
+      <h1>
+        <strong>LATEST PRODUCTS</strong>
+      </h1>
       {loading ? (
         <Loader />
       ) : error ? (

@@ -68,7 +68,7 @@ const ProductScreen = ({ history, match }) => {
 
   return (
     <>
-      <Link className='btn btn-light my-3' to='/'>
+      <Link className='btn btn-info my-3' to='/'>
         Go Back
       </Link>
       {loading ? (
@@ -162,6 +162,7 @@ const ProductScreen = ({ history, match }) => {
 
                   <ListGroup.Item>
                     <Button
+                      variant='danger'
                       onClick={addToCartHandler}
                       className='btn-block'
                       type='button'
@@ -176,7 +177,7 @@ const ProductScreen = ({ history, match }) => {
           </Row>
           <Row>
             <Col md={6}>
-              <h2> Reviews </h2>
+              <h2 className='pt-5'> REVIEWS </h2>
               {product.reviews.length === 0 && <Message>No Reviews</Message>}
               <ListGroup variant='flush'>
                 {product.reviews.map((review) => (
@@ -223,7 +224,7 @@ const ProductScreen = ({ history, match }) => {
                           }}
                         ></Form.Control>
                       </Form.Group>
-                      <Button type='submit' variant='primary'>
+                      <Button type='submit' variant='danger'>
                         Subbmit
                       </Button>
                     </Form>

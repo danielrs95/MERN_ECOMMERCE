@@ -95,12 +95,12 @@ const OrderScreen = ({ match, history }) => {
     <Message variant='danger'>{error}</Message>
   ) : (
     <>
-      <h1>Order {order._id}</h1>
+      <h1>ORDER: {order._id}</h1>
       <Row>
         <Col md={8}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h2>Shipping</h2>
+              <h2>SHIPPING</h2>
               <p>
                 <strong>Name: </strong> {order.user.name}
               </p>
@@ -220,6 +220,7 @@ const OrderScreen = ({ match, history }) => {
                 !order.isDelivered && (
                   <ListGroup.Item>
                     <Button
+                      variant='danger'
                       type='button'
                       className='btn btn-block'
                       onClick={deliverHandler}
