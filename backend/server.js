@@ -27,10 +27,6 @@ if (process.env.NODE_ENV === "DEVELOPMENT") {
 
 app.use(express.json()); // nos permite usar JSON DATA en el body
 
-app.get("/", (req, res) => {
-  res.send("API is running");
-});
-
 // Todas las rutas que apunten a /api/products serán manejadas por productRoutes
 app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
@@ -46,6 +42,18 @@ app.get("/api/config/paypal", (req, res) =>
 // PATH es un modulo de node que nos deja trabajar con file paths
 const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/frontend/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running");
+  });
+}
 
 // Error middleware
 app.use(notFound);
