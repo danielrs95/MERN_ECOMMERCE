@@ -1,5 +1,5 @@
 main {
-  min-height: 80vh;
+  min-height: 100vh;
 }
 
 h3 {
@@ -55,8 +55,8 @@ h1 {
   }
 }
 
-.container .dropdown .dropdown-menu a:hover {
-  color: #fff;
+/* .container .dropdown .dropdown-menu a:hover {
+  color: #000;
   background-color: #e74c3c;
   border-color: #fff;
-}
+} */
