@@ -1,11 +1,11 @@
-import React from "react";
-import { Route } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { LinkContainer } from "react-router-bootstrap";
-import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { logout } from "../actions/userActions";
-import SearchBox from "./SearchBox";
+import React from 'react';
+import { Route } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { logout } from '../actions/userActions';
+import SearchBox from './SearchBox';
 
 /**
  * Para TRAER algo del estado usamos useSelector
@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
+      <Navbar bg='secondary' variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>MERN ECOMMERCE</Navbar.Brand>
@@ -44,7 +44,7 @@ const Header = () => {
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id='username'>
                   <LinkContainer to='/profile'>
-                    <NavDropdown.Item style={{ backgroundColor: "red" }}>
+                    <NavDropdown.Item style={{ backgroundColor: 'red' }}>
                       Profile
                     </NavDropdown.Item>
                   </LinkContainer>
