@@ -1,5 +1,7 @@
 # E-Commerce
 
+![web](public/mern_homeScreen.png)
+
 [Live Preview](https://merncommercedny.herokuapp.com/)
 
 E-Commerce application made with React, Redux, Node, Express & MondoDB. Some of the build in functionality are
